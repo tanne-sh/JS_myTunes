@@ -55,8 +55,8 @@ export const videoPlayerInit = () => {
     let minutTotal = Math.floor(duration / 60);
     let secondsTotal = Math.floor(duration % 60);
 
-    videoTimePassed.textContent = addZero(minutPassed) + ':' + addZero(secondsPassed);        
-    videoTimeTotal.textContent = addZero(minutTotal) + ':' + addZero(secondsTotal);           
+    videoTimePassed.textContent = `${addZero(minutPassed)}:${addZero(secondsPassed)}`;        
+    videoTimeTotal.textContent = `${addZero(minutTotal)}:${addZero(secondsTotal)}`;           
   });
 
   videoProgress.addEventListener('change', () => {
@@ -65,5 +65,5 @@ export const videoPlayerInit = () => {
 
     videoPlayer.currentTime = (value * duration) /100;
   });
-  
+
 };
