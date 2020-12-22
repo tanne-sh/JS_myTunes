@@ -1,7 +1,7 @@
 export const radioPlayerInit = () => {
   const radio = document.querySelector('.radio');
   const radioCoverImg = document.querySelector('.radio-cover__img');
-  const radioHeader = document.querySelector('.radio-header');
+  const radioHeaderBig = document.querySelector('.radio-header__big');
   const radioNavigation = document.querySelector('.radio-navigation');
   const radioItem = document.querySelectorAll('.radio-item');
   const radioStop = document.querySelector('.radio-stop');
@@ -23,14 +23,21 @@ export const radioPlayerInit = () => {
       }
   }
 
-
+  const selectItem = elem => {
+    radioItem.forEach(item => item.classList.remove('select'));
+    elem.classList.add('select');
+  }
 
   radioNavigation.addEventListener('change', event => {
     const target = event.target;
     const parrent = target.closest('.radio-item');
+    selectItem(parrent);
 
-    radioItem.forEach(item => item.classList.remove('select'));
-    parrent.classList.add('select');
+    const title = parrent.querySelector('.radio-name').textContent;
+    radioHeaderBig.textContent = title;
+
+    const urlImg = parrent.querySelector('.radio-img').src;
+    radioCoverImg.src = urlImg;
 
     radioStop.disabled = false;
     audio.src = target.dataset.radioStantion;
