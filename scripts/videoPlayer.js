@@ -79,5 +79,9 @@ export const videoPlayerInit = () => {
 
   videoVolume.addEventListener('input', changeValue);
 
+  videoPlayer.addEventListener('volumechange', () => {
+      videoVolume.value = Math.round(videoPlayer.volume * 100)
+  });
+
   changeValue();
 };
