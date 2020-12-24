@@ -8,12 +8,17 @@ const temp = document.querySelector(".temp");
 
 const deactivationPlayer = () => {
   temp.style.display = "none";
+
   playerBtn.forEach((item) => {
     item.classList.remove("active");
   });
+
   playerBlock.forEach((item) => {
     item.classList.remove("active");
   });
+  
+  radioPlayerInit.stop();
+  videoPlayerInit.stop();
 };
 
 playerBtn.forEach((btn, i) => {
@@ -27,3 +32,4 @@ playerBtn.forEach((btn, i) => {
 videoPlayerInit();
 musicPlayerInit();
 radioPlayerInit();
+
